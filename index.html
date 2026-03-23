@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <meta name="description" content="Premium artificial turf installation in Georgia. Pet-safe, kid-friendly, low-maintenance. Get your free quote or instant estimate today — most installs done in 1-2 days!">
+    <meta name="keywords" content="artificial turf Georgia, artificial grass installation, synthetic turf Atlanta, pet turf, putting green, turf installer near me">
+    <meta name="robots" content="index, follow">
+    <title>Premium Artificial Turf Installation Georgia | LawnLogic — Free Quote</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Premium Artificial Turf Georgia | LawnLogic — Free Quote">
+    <meta property="og:description" content="Transform your yard with premium artificial turf. Pet-safe, kid-friendly, low-maintenance. Serving Kennesaw, Acworth, Marietta & more.">
+    <meta property="og:image" content="https://www.lawnlogicturf.com/images/logo.png">
+    <meta property="og:url" content="https://instant.lawnlogicturf.com">
+
+    <!-- Google Analytics 4 + Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZQR4F0N8K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CZQR4F0N8K');
+        gtag('config', 'AW-18016868257');
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663366850225/dAWUoT8nSPheYtX3H75baB/lawnlogic-favicon_6aae34b2.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663366850225/dAWUoT8nSPheYtX3H75baB/lawnlogic-favicon_6aae34b2.png">
+
+    <style>
+        /* ===== FLOATING BUTTONS ===== */
+        .floating-buttons {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 9999;
+        }
+        .float-btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            position: relative;
+        }
+        .float-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+        .float-btn-quote { background: #2d6a2d; color: #fff; }
+        .float-btn-ai { background: #1a1a2e; color: #fff; }
+        .float-btn-label {
+            position: absolute;
+            right: 66px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .float-btn:hover .float-btn-label { opacity: 1; }
+
+        /* ===== AI CHAT PANEL ===== */
+        #ai-chat-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 90px;
+            width: 340px;
+            max-height: 480px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+            z-index: 9998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        #ai-chat-panel.open { display: flex; }
+        .ai-chat-header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .ai-chat-header span { font-size: 1.1rem; margin-right: 8px; }
+        .ai-chat-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        .ai-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #f8f9fa;
+        }
+        .ai-msg {
+            max-width: 85%;
+            padding: 10px 13px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .ai-msg.bot { background: #fff; border: 1px solid #e0e0e0; align-self: flex-start; }
+        .ai-msg.user { background: #2d6a2d; color: #fff; align-self: flex-end; }
+        .ai-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 0 14px 10px;
+            background: #f8f9fa;
+        }
+        .ai-quick-btn {
+            background: #fff;
+            border: 1px solid #2d6a2d;
+            color: #2d6a2d;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.15s, color 0.15s;
+        }
+        .ai-quick-btn:hover { background: #2d6a2d; color: #fff; }
+        .ai-chat-input-row {
+            display: flex;
+            padding: 10px 12px;
+            gap: 8px;
+            border-top: 1px solid #e0e0e0;
+            background: #fff;
+        }
+        .ai-chat-input {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 8px 14px;
+            font-size: 0.82rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .ai-chat-send {
+            background: #2d6a2d;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== GLOBAL MOBILE OVERFLOW FIX ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { overflow-x: hidden; max-width: 100%; }
+        section, header, footer, div { max-width: 100%; }
+        img { max-width: 100%; height: auto; }
+
+        /* ===== FEATURES GRID — 3 columns × 2 rows (6 cards) ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* No per-card column overrides — 6 cards fills 3×2 evenly */
+        .features-grid .feature-card:nth-child(n) {
+            grid-column: auto;
+        }
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .floating-buttons { bottom: 100px; right: 14px; }
+            #ai-chat-panel { right: 14px; width: calc(100vw - 28px); max-width: calc(100vw - 28px); }
+        }
+        @media (max-width: 640px) {
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .badge-cards { grid-template-columns: 1fr !important; }
+            .hero-ctas { flex-direction: column; }
+            .hero .btn { width: 100%; }
+            .header-ctas .btn { padding: 0.45rem 0.75rem; font-size: 0.82rem; }
+            .logo-text { font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .trust-eyebrow { gap: 0.5rem 0.75rem; font-size: 0.8rem; }
+            .eyebrow-item { font-size: 0.8rem; }
+            .hero { padding: 2.5rem 1rem; }
+            .lead-section, .features, .testimonials, .faq, .city-content { padding: 2.5rem 1rem; }
+            .form-card { padding: 1.25rem; }
+            .pain-card { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="https://www.lawnlogicturf.com" target="_blank">
+                    <img src="https://www.lawnlogicturf.com/images/logo.png" alt="LawnLogic Turf & Outdoor" class="logo">
+                </a>
+                <span class="logo-text">LawnLogic</span>
+            </div>
+            <div class="header-ctas">
+                <a href="tel:7067018873" class="btn btn-secondary" data-event="landing_cta_call_click">
+                    <span class="phone-icon">☎</span> Call Now
+                </a>
+                <a href="https://www.lawnlogicturf.com/contact" class="btn btn-primary" data-event="landing_cta_quote_click">
+                    Get Free Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Trust Eyebrow -->
+            <div class="trust-eyebrow">
+                <span class="eyebrow-item">⭐ 4.8+ Rating (200+ Reviews)</span>
+                <span class="eyebrow-item">🐾 Pet Safe & Tested</span>
+                <span class="eyebrow-item">👨‍👩‍👧‍👦 Kid Safe</span>
+                <span class="eyebrow-item">✓ Low Maintenance</span>
+            </div>
+
+            <h1 class="hero-headline">Stop Fighting With Your Lawn.<br>Start Enjoying Your Yard.</h1>
+            <p class="hero-subheadline">Premium artificial turf that looks real, feels soft, and stays beautiful year-round. No mowing. No watering. No chemicals. Just a perfect lawn — installed in 1-2 days.</p>
+
+            <div class="hero-ctas">
+                <a href="https://www.lawnlogicturf.com/contact" class="btn btn-primary btn-lg" data-event="landing_cta_quote_click">
+                    Get My Free Quote
+                </a>
+                <a href="tel:7067018873" class="btn btn-secondary btn-lg" data-event="landing_cta_call_click">
+                    <span class="phone-icon">☎</span> Call (706) 701-8873
+                </a>
+            </div>
+
+            <!-- Badge Cards -->
+            <div class="badge-cards">
+                <div class="badge-card">
+                    <div class="badge-icon">⚡</div>
+                    <p><strong>Fast Install</strong><br>Most yards done in 1-2 days</p>
+                </div>
+                <div class="badge-card">
+                    <div class="badge-icon">🐕</div>
+                    <p><strong>Built for Dogs</strong><br>Pet-safe & drain-friendly</p>
+                </div>
+                <div class="badge-card">
+                    <div class="badge-icon">✨</div>
+                    <p><strong>Luxury Finish</strong><br>Premium look you'll love</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Before/After Slider -->
+        <div class="before-after-container">
+            <div class="before-after-slider">
+                <div class="before-after-img before">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663366850225/dAWUoT8nSPheYtX3H75baB/turf_4_before_3d8f41b1.jpg" alt="Before - bare dirt backyard before artificial turf installation" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="label">Before</span>
+                </div>
+                <div class="before-after-img after">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663366850225/dAWUoT8nSPheYtX3H75baB/turf_4_after_462251cb.jpg" alt="After - happy dog on premium artificial turf installed by LawnLogic" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="label">After</span>
+                </div>
+                <div class="slider-divider" id="sliderDivider"></div>
+                <div class="slider-handle" id="sliderHandle"></div>
+                <input type="range" min="0" max="100" value="50" class="slider-thumb" id="beforeAfterSlider">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="trust-strip">
+        <div class="trust-pills">
+            <span class="pill">✓ Free Quote</span>
+            <span class="pill">✓ Premium Turf Systems</span>
+            <span class="pill">✓ Financing Available</span>
+            <span class="pill">✓ Pet Friendly</span>
+            <span class="pill">✓ Family Friendly</span>
+            <span class="pill">✓ Licensed & Insured</span>
+            <span class="pill">✓ 20+ Years Experience</span>
+        </div>
+    </section>
+
+    <!-- Lead Section -->
+    <section class="lead-section">
+        <div class="lead-container">
+            <!-- Left Column: Pain/Solution Cards -->
+            <div class="lead-column pain-column">
+                <h2>Why Homeowners Choose LawnLogic</h2>
+
+                <div class="pain-card">
+                    <div class="card-icon">💧</div>
+                    <h3>Stop Wasting Money on Water</h3>
+                    <p>Save thousands on water bills. Zero watering required, even in Georgia heat.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="card-icon">✂️</div>
+                    <h3>Never Mow Again</h3>
+                    <p>Reclaim your weekends. No mowing, no trimming, no maintenance headaches.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="card-icon">🌱</div>
+                    <h3>Chemical-Free & Safe</h3>
+                    <p>Pet-safe and kid-friendly. No pesticides or fertilizers. Just peace of mind.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="card-icon">📅</div>
+                    <h3>Year-Round Green</h3>
+                    <p>Gorgeous lawn in every season. No dead patches, no winter dormancy.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Multi-Step Quote Form -->
+            <div class="lead-column form-column">
+                <div class="form-card">
+                    <h2>Get Your Free Quote</h2>
+                    <p class="form-subtitle">Join 200+ happy Georgia homeowners</p>
+
+                    <!-- Progress bar -->
+                    <div style="margin-bottom:1.25rem;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                            <span id="form-progress-text" style="font-size:0.75rem;color:#888;font-weight:600;">Step 1 of 3</span>
+                            <span style="font-size:0.75rem;color:#2d6a2d;font-weight:600;">Free &amp; No Obligation</span>
+                        </div>
+                        <div style="background:#e8f5e9;border-radius:20px;height:6px;overflow:hidden;">
+                            <div id="form-progress-bar" style="height:100%;background:#2d6a2d;border-radius:20px;width:0%;transition:width 0.4s ease;"></div>
+                        </div>
+                    </div>
+
+                    <form id="multi-step-form" class="quote-form">
+                        <input type="hidden" id="ms-projectType" name="projectType" value="">
+
+                        <!-- Step 1: Project Type -->
+                        <div class="form-step active" data-step-name="project_type">
+                            <p style="font-size:0.9rem;color:#555;margin-bottom:1rem;font-weight:500;">What type of project are you looking for?</p>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0.5rem;">
+                                <div class="project-type-card" data-value="pet-turf" style="border:2px solid #e0e0e0;border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:all 0.2s;background:#fff;">
+                                    <div style="font-size:1.8rem;margin-bottom:4px;">🐕</div>
+                                    <div style="font-size:0.82rem;font-weight:700;color:#1a1a1a;">Pet-Friendly</div>
+                                    <div style="font-size:0.72rem;color:#888;">Turf</div>
+                                </div>
+                                <div class="project-type-card" data-value="general-turf" style="border:2px solid #e0e0e0;border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:all 0.2s;background:#fff;">
+                                    <div style="font-size:1.8rem;margin-bottom:4px;">🌿</div>
+                                    <div style="font-size:0.82rem;font-weight:700;color:#1a1a1a;">General</div>
+                                    <div style="font-size:0.72rem;color:#888;">Lawn</div>
+                                </div>
+                                <div class="project-type-card" data-value="putting-green" style="border:2px solid #e0e0e0;border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:all 0.2s;background:#fff;">
+                                    <div style="font-size:1.8rem;margin-bottom:4px;">⛳</div>
+                                    <div style="font-size:0.82rem;font-weight:700;color:#1a1a1a;">Putting</div>
+                                    <div style="font-size:0.72rem;color:#888;">Green</div>
+                                </div>
+                                <div class="project-type-card" data-value="backyard-setup" style="border:2px solid #e0e0e0;border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:all 0.2s;background:#fff;">
+                                    <div style="font-size:1.8rem;margin-bottom:4px;">🏡</div>
+                                    <div style="font-size:0.82rem;font-weight:700;color:#1a1a1a;">Full</div>
+                                    <div style="font-size:0.72rem;color:#888;">Backyard</div>
+                                </div>
+                            </div>
+                            <button type="button" data-next-step="1" class="btn btn-primary btn-block" style="margin-top:10px;">Continue →</button>
+                        </div>
+
+                        <!-- Step 2: Contact Info (Phone + Name — minimum capture) -->
+                        <div class="form-step" data-step-name="contact_info">
+                            <p style="font-size:0.9rem;color:#2d6a2d;margin-bottom:1rem;font-weight:600;">How can we reach you with your free quote?</p>
+                            <div class="form-group">
+                                <label for="ms-fullName" style="font-size:0.78rem;font-weight:700;color:#333;margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:0.05em;">Your Name *</label>
+                                <input type="text" id="ms-fullName" name="fullName" placeholder="e.g. John Smith" required autocomplete="name" style="background:#fff;color:#1a1a1a;border:2px solid #d1d5db;border-radius:8px;padding:0.8rem 1rem;font-size:1rem;width:100%;box-sizing:border-box;">
+                            </div>
+                            <div class="form-group">
+                                <label for="ms-phone" style="font-size:0.78rem;font-weight:700;color:#333;margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:0.05em;">Phone Number * <span style="font-weight:400;color:#888;text-transform:none;">(10 digits required)</span></label>
+                                <input type="tel" id="ms-phone" name="phone" placeholder="(706) 555-1234" required autocomplete="tel" inputmode="numeric" maxlength="14" style="background:#fff;color:#1a1a1a;border:2px solid #d1d5db;border-radius:8px;padding:0.8rem 1rem;font-size:1rem;width:100%;box-sizing:border-box;">
+                                <span id="phone-error" style="display:none;font-size:0.78rem;color:#dc2626;margin-top:3px;">Please enter a valid 10-digit phone number</span>
+                            </div>
+                            <p style="font-size:0.75rem;color:#888;margin-top:6px;margin-bottom:0;">🔒 We'll text you a confirmation. No spam, ever.</p>
+                            <div style="display:flex;gap:8px;margin-top:12px;">
+                                <button type="button" data-prev-step="0" class="btn btn-secondary" style="flex:0 0 auto;padding:0.65rem 1rem;">← Back</button>
+                                <button type="button" data-next-step="2" class="btn btn-primary" style="flex:1;" id="step2-next">Almost Done →</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Details -->
+                        <div class="form-step" data-step-name="details">
+                            <p style="font-size:0.9rem;color:#2d6a2d;margin-bottom:1rem;font-weight:600;">Last step — help us give you the most accurate quote!</p>
+                            <div class="form-group">
+                                <label for="ms-email" style="font-size:0.78rem;font-weight:700;color:#333;margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:0.05em;">Email Address <span style="font-weight:400;color:#888;text-transform:none;">(optional)</span></label>
+                                <input type="email" id="ms-email" name="email" placeholder="you@example.com" autocomplete="email" style="background:#fff;color:#1a1a1a;border:2px solid #d1d5db;border-radius:8px;padding:0.8rem 1rem;font-size:1rem;width:100%;box-sizing:border-box;">
+                                <span id="email-error" style="display:none;font-size:0.78rem;color:#dc2626;margin-top:3px;">Please enter a valid email address</span>
+                            </div>
+                            <div class="form-group" style="position:relative;">
+                                <label for="ms-address" style="font-size:0.78rem;font-weight:700;color:#333;margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:0.05em;">Property Address</label>
+                                <input type="text" id="ms-address" name="propertyAddress" placeholder="Start typing your address..." autocomplete="off" style="background:#fff;color:#1a1a1a;border:2px solid #d1d5db;border-radius:8px;padding:0.8rem 1rem;font-size:1rem;width:100%;box-sizing:border-box;">
+                                <div id="mapbox-suggestions" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:2px solid #2d6a2d;border-top:none;border-radius:0 0 8px 8px;z-index:9999;max-height:200px;overflow-y:auto;box-shadow:0 4px 12px rgba(0,0,0,0.15);"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ms-message" style="font-size:0.78rem;font-weight:700;color:#333;margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:0.05em;">Additional Details <span style="font-weight:400;color:#888;text-transform:none;">(optional)</span></label>
+                                <textarea id="ms-message" name="message" placeholder="Yard size, specific needs, best time to call..." rows="3" style="background:#fff;color:#1a1a1a;border:2px solid #d1d5db;border-radius:8px;padding:0.8rem 1rem;font-size:1rem;width:100%;box-sizing:border-box;resize:vertical;"></textarea>
+                            </div>
+                            <div id="ms-error" style="display:none;background:#fff0f0;border:1px solid #ffcccc;border-radius:8px;padding:10px;font-size:0.82rem;color:#c00;margin-bottom:10px;">There was an issue submitting. Please call us at (706) 701-8873.</div>
+                            <div style="display:flex;gap:8px;">
+                                <button type="button" data-prev-step="1" class="btn btn-secondary" style="flex:0 0 auto;padding:0.65rem 1rem;">← Back</button>
+                                <button type="submit" class="btn btn-primary" style="flex:1;" id="ms-submitBtn">Get My Free Quote →</button>
+                            </div>
+                            <p class="form-note" style="margin-top:10px;color:#555;">We'll call you within 24 hours. No spam, ever.</p>
+                        </div>
+                    </form>
+
+                    <!-- Success State -->
+                    <div id="form-success" style="display:none;text-align:center;padding:1.5rem 0;">
+                        <div style="font-size:3rem;margin-bottom:0.75rem;">✅</div>
+                        <h3 style="font-size:1.3rem;font-weight:800;color:#1a3d1a;margin-bottom:0.5rem;">You're all set, <span id="success-name">friend!</span></h3>
+                        <p style="color:#555;font-size:0.9rem;margin-bottom:1.25rem;">We received your quote request and will call you within 24 hours. Check your phone!</p>
+                        <a href="https://www.getturfinstant.com" target="_blank" class="btn btn-primary" data-event="landing_instant_estimate_click" style="display:inline-block;">
+                            ⚡ Get an Instant Estimate While You Wait
+                        </a>
+                    </div>
+
+                    <!-- Instant Estimate CTA -->
+                    <div style="margin-top: 1.5rem; padding: 1.25rem; background: #f0f7f0; border-radius: 12px; border: 2px solid #2d6a2d; text-align: center;">
+                        <p style="font-weight: 700; color: #1a3d1a; margin-bottom: 0.35rem; font-size: 0.95rem;">Want a ballpark number right now?</p>
+                        <p style="color: #555; font-size: 0.85rem; margin-bottom: 0.75rem;">Get a price in under 60 seconds.</p>
+                        <a href="https://www.getturfinstant.com" target="_blank" class="btn btn-primary" data-event="landing_instant_estimate_click" style="display: inline-block;font-size:0.9rem;padding:0.6rem 1.25rem;">
+                            ⚡ Launch Instant Estimate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews (Elfsight) -->
+    <section style="padding: 3rem 1.5rem; background: #fff; text-align: center;">
+        <h2 style="font-size: 2rem; font-weight: 800; color: #1a1a1a; margin-bottom: 0.5rem;">What Our Customers Are Saying</h2>
+        <p style="color: #666; margin-bottom: 2rem;">Real reviews from real Georgia homeowners</p>
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-cc0ab470-d921-42b9-aed8-c2a4e8b70824" data-elfsight-app-lazy></div>
+    </section>
+
+    <!-- Duplicate testimonials removed — using Elfsight Google Reviews widget only -->
+
+    <!-- Features Section — 3-column grid, 4th card centered -->
+    <section class="features">
+        <h2>Why Premium Artificial Turf?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🐾</div>
+                <h3>Pet Friendly</h3>
+                <p>Specially designed for pets with superior drainage and soft texture. No more muddy paws or dead patches from urine.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✋</div>
+                <h3>Lower Maintenance</h3>
+                <p>Spend time enjoying your lawn, not maintaining it. No mowing, watering, or chemicals ever.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>Family Ready</h3>
+                <p>Safe for kids to play on year-round. No chemicals, no injuries from slips, and always green.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Finished Look</h3>
+                <p>Premium appearance that enhances your home's curb appeal. Looks real and stays beautiful in every season.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Installation</h3>
+                <p>Most yards completed in just 1-2 days. Our experienced crew handles everything from prep to final grading.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Financing Available</h3>
+                <p>Flexible payment options to fit your budget. Many customers recover their investment within 3-5 years in savings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Band Section -->
+    <section class="cta-band">
+        <div class="cta-band-content">
+            <h2>Ready to Transform Your Yard?</h2>
+            <p>Join hundreds of Georgia homeowners enjoying their perfect lawns</p>
+            <div class="cta-band-buttons">
+                <a href="https://www.lawnlogicturf.com/contact" class="btn btn-primary btn-lg" data-event="landing_cta_quote_click">
+                    Get Free Quote
+                </a>
+                <a href="https://www.getturfinstant.com" target="_blank" class="btn btn-light btn-lg" data-event="landing_instant_estimate_click">
+                    ⚡ Instant Estimate Tool
+                </a>
+                <a href="tel:7067018873" class="btn btn-light btn-lg" data-event="landing_cta_call_click">
+                    <span class="phone-icon">☎</span> Call (706) 701-8873
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How long does installation take?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Most installations are completed in 1-2 days depending on yard size. We handle all the heavy lifting including proper base preparation, drainage, and final grading. Our team works efficiently and respects your property throughout the process.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Is artificial turf safe for kids and pets?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. Our turf is specifically designed to be pet-safe and kid-friendly. It's made from non-toxic materials, has no chemicals or pesticides, and features superior drainage to keep your yard clean. Pets love it and kids can play safely year-round.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I get an instant price estimate?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Visit <a href="https://www.getturfinstant.com" target="_blank" style="color:#2d6a2d;font-weight:600;">GetTurfInstant.com</a> to use our instant estimate tool. Enter your yard dimensions and get a ballpark figure in under 60 seconds. For a precise quote, fill out the form above and we'll call you within 24 hours.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What areas do you serve?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We proudly serve the greater Atlanta area including Kennesaw, Acworth, Marietta, Alpharetta, Roswell, Woodstock, and surrounding Georgia communities. Contact us to confirm service availability for your area.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you offer financing options?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We offer flexible financing options to make your project more affordable. Speak with our team about payment plans that work for your budget. Many customers find that their savings on water and maintenance pay for the installation within a few years.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How much does a turf installation cost?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Pricing depends on your yard size, current lawn condition, and specific needs. That's why we offer free personalized quotes. On average, customers save $100-300 monthly on water and maintenance, often recovering their investment within 3-5 years. Use our <a href="https://www.getturfinstant.com" target="_blank" style="color:#2d6a2d;font-weight:600;">Instant Estimate Tool</a> for a quick ballpark figure.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How long does artificial turf last?</span>
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Premium artificial turf typically lasts 8-15 years with minimal maintenance. Our turf is UV-resistant and designed for Georgia's climate. Regular light rinsing and occasional brushing keeps it looking fresh for years to come.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City-Specific Content Block -->
+    <section class="city-content">
+        <h2>Artificial Turf Services Across Georgia</h2>
+        <div class="city-grid">
+            <div class="city-card">
+                <h3>Kennesaw Artificial Turf</h3>
+                <p>Professional installation in Kennesaw with fast turnaround and premium results. Serving the Kennesaw community with pet-safe, low-maintenance solutions.</p>
+                <a href="/cities/kennesaw/">Learn More</a>
+            </div>
+            <div class="city-card">
+                <h3>Acworth Artificial Turf</h3>
+                <p>Expert turf installation in Acworth. Financing available and free quotes. Join your neighbors enjoying beautiful yards year-round.</p>
+                <a href="/cities/acworth/">Learn More</a>
+            </div>
+            <div class="city-card">
+                <h3>Marietta Artificial Turf</h3>
+                <p>Transform your Marietta yard with premium artificial turf. Fast installation, pet-friendly design, and exceptional customer service.</p>
+                <a href="/cities/marietta/">Learn More</a>
+            </div>
+            <div class="city-card">
+                <h3>Alpharetta Artificial Turf</h3>
+                <p>Premium turf solutions for Alpharetta homes. High-end finishes and professional installation. Get your free estimate today.</p>
+                <a href="/cities/alpharetta/">Learn More</a>
+            </div>
+            <div class="city-card">
+                <h3>Roswell Artificial Turf</h3>
+                <p>Roswell's trusted artificial turf provider. Expert installation, family-friendly design, and outstanding results.</p>
+                <a href="/cities/roswell/">Learn More</a>
+            </div>
+            <div class="city-card">
+                <h3>Woodstock Artificial Turf</h3>
+                <p>Quality artificial turf for Woodstock properties. Pet-safe installation and premium customer service in your neighborhood.</p>
+                <a href="/cities/woodstock/">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>LawnLogic Turf & Outdoor</h4>
+                <p><strong>Phone:</strong> <a href="tel:7067018873">(706) 701-8873</a></p>
+                <p><strong>Email:</strong> <a href="mailto:hello@lawnlogicturf.com">hello@lawnlogicturf.com</a></p>
+                <p><strong>Website:</strong> <a href="https://www.lawnlogicturf.com" target="_blank">www.LawnLogicTurf.com</a></p>
+            </div>
+            <div class="footer-column">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li><a href="/cities/kennesaw/">Kennesaw</a></li>
+                    <li><a href="/cities/acworth/">Acworth</a></li>
+                    <li><a href="/cities/marietta/">Marietta</a></li>
+                    <li><a href="/cities/alpharetta/">Alpharetta</a></li>
+                    <li><a href="/cities/roswell/">Roswell</a></li>
+                    <li><a href="/cities/woodstock/">Woodstock</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/services/general-turf.html">General Artificial Turf</a></li>
+                    <li><a href="/services/pet-turf.html">Pet-Friendly Turf</a></li>
+                    <li><a href="/services/putting-green.html">Putting Greens</a></li>
+                    <li><a href="https://www.getturfinstant.com" target="_blank">⚡ Instant Estimate Tool</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://www.lawnlogicturf.com/privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                    <li><a href="https://www.lawnlogicturf.com/terms-of-service.html" target="_blank">Terms of Service</a></li>
+                    <li><a href="https://www.lawnlogicturf.com/contact" target="_blank">Contact Us</a></li>
+                    <li><a href="https://www.lawnlogicturf.com/blog" target="_blank">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LawnLogic Turf & Outdoor. All rights reserved. Serving Georgia communities with premium artificial turf solutions.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA (fixed bottom on mobile) -->
+    <div class="mobile-sticky-cta" id="mobileStickyArea">
+        <a href="tel:7067018873" class="btn btn-secondary btn-block" data-event="landing_mobile_call_click">
+            <span class="phone-icon">☎</span> Call Now
+        </a>
+        <a href="https://www.lawnlogicturf.com/contact" class="btn btn-primary btn-block" data-event="landing_mobile_quote_click">
+            Get Free Quote
+        </a>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://www.lawnlogicturf.com/contact" class="float-btn float-btn-quote" data-event="floating_quote_click" title="Request a Quote">
+            <span>📋</span>
+            <span class="float-btn-label">Request Quote</span>
+        </a>
+        <button class="float-btn float-btn-ai" id="aiChatToggle" title="Ask AI Assistant">
+            <span>🤖</span>
+            <span class="float-btn-label">AI Assistant</span>
+        </button>
+    </div>
+
+    <!-- AI Chat Panel -->
+    <div id="ai-chat-panel">
+        <div class="ai-chat-header">
+            <div><span>🤖</span> LawnLogic AI Assistant</div>
+            <button class="ai-chat-close" id="aiChatClose">✕</button>
+        </div>
+        <div class="ai-chat-messages" id="aiMessages">
+            <div class="ai-msg bot">Hi! I'm the LawnLogic AI assistant. I can answer questions about artificial turf, pricing, installation, and more. What would you like to know?</div>
+        </div>
+        <div class="ai-quick-replies" id="aiQuickReplies">
+            <button class="ai-quick-btn" data-q="How much does turf cost?">💰 Pricing</button>
+            <button class="ai-quick-btn" data-q="How long does installation take?">⚡ Install time</button>
+            <button class="ai-quick-btn" data-q="Is it safe for pets?">🐾 Pet safe?</button>
+            <button class="ai-quick-btn" data-q="What areas do you serve?">📍 Service area</button>
+            <button class="ai-quick-btn" data-q="Do you offer financing?">💳 Financing</button>
+        </div>
+        <div class="ai-chat-input-row">
+            <input type="text" class="ai-chat-input" id="aiInput" placeholder="Ask a question...">
+            <button class="ai-chat-send" id="aiSend">➤</button>
+        </div>
+    </div>
+
+    <!-- Exit-Intent Popup -->
+    <div id="exit-popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:99999;align-items:center;justify-content:center;padding:1rem;box-sizing:border-box;">
+        <div style="background:#fff;border-radius:20px;max-width:480px;width:100%;padding:2rem;position:relative;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.4);">
+            <button onclick="document.getElementById('exit-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#bbb;line-height:1;">✕</button>
+            <div style="font-size:2.5rem;margin-bottom:0.5rem;">⚡</div>
+            <h3 style="font-size:1.35rem;font-weight:800;color:#1a1a1a;margin-bottom:0.4rem;">Get Your Instant Price Estimate</h3>
+            <p style="color:#666;font-size:0.9rem;margin-bottom:1.4rem;line-height:1.5;">Enter your yard size and we'll text you a real price range in seconds — no obligation.</p>
+            <form id="exit-form" style="display:flex;flex-direction:column;gap:10px;text-align:left;">
+                <input type="text" id="exit-name" placeholder="Your Name" required style="padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:1rem;outline:none;color:#1a1a1a;background:#fff;">
+                <input type="tel" id="exit-phone" placeholder="(706) 555-1234" required style="padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:1rem;outline:none;color:#1a1a1a;background:#fff;" maxlength="14">
+                <div id="exit-phone-error" style="color:#e53e3e;font-size:0.78rem;display:none;margin-top:-6px;">Please enter a valid 10-digit phone number</div>
+                <!-- Sqft input with helper -->
+                <div style="position:relative;">
+                    <input type="number" id="exit-sqft" placeholder="Approximate sq ft (e.g. 500)" min="50" max="50000" style="padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:1rem;outline:none;color:#1a1a1a;background:#fff;width:100%;box-sizing:border-box;">
+                </div>
+                <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;font-size:0.75rem;color:#166534;line-height:1.5;">
+                    📐 <strong>Size guide:</strong> Small yard ~300 sqft &nbsp;·&nbsp; Average backyard ~500–800 sqft &nbsp;·&nbsp; Large yard ~1,200+ sqft
+                </div>
+                <!-- Live price preview (hidden until sqft entered) -->
+                <div id="exit-price-preview" style="display:none;background:linear-gradient(135deg,#1a3a1a,#2d6a2d);border-radius:12px;padding:1rem;text-align:center;">
+                    <div style="font-size:0.75rem;color:#86efac;font-weight:600;letter-spacing:0.05em;margin-bottom:4px;">YOUR ESTIMATED RANGE</div>
+                    <div id="exit-price-range" style="font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:-0.02em;"></div>
+                    <div style="font-size:0.72rem;color:#bbf7d0;margin-top:4px;">Based on ~<span id="exit-sqft-display"></span> sq ft · Final price after free measurement</div>
+                </div>
+                <div id="exit-sqft-error" style="color:#e53e3e;font-size:0.78rem;display:none;margin-top:-6px;">Please enter your approximate square footage</div>
+                <button type="submit" id="exit-submit-btn" style="background:#2d6a2d;color:#fff;border:none;border-radius:10px;padding:14px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:2px;">📱 Text Me This Price →</button>
+            </form>
+            <p style="margin-top:0.8rem;font-size:0.75rem;color:#aaa;">No spam. Just your price range. We respond within minutes.</p>
+            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #f0f0f0;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+                <a href="tel:+17067018873" style="display:inline-flex;align-items:center;gap:6px;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;font-weight:700;font-size:0.85rem;padding:8px 14px;border-radius:8px;text-decoration:none;">📞 Call (706) 701-8873</a>
+                <span style="font-size:0.78rem;color:#999;">for exact measurements</span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    /* Multi-step form styles */
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+    .project-type-card:hover { border-color: #2d6a2d !important; background: #f0f7f0 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(45,106,45,0.15); }
+    .project-type-card.selected { border-color: #2d6a2d !important; background: #e8f5e9 !important; box-shadow: 0 0 0 3px rgba(45,106,45,0.15); }
+    .project-type-card.selected div:first-child { transform: scale(1.1); }
+    #step2-next { pointer-events: none; }
+    #step2-next[data-next-step] { pointer-events: auto; }
+    /* Force white/readable form inputs regardless of dark mode */
+    #multi-step-form input,
+    #multi-step-form textarea,
+    #multi-step-form select {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+        border: 2px solid #d1d5db !important;
+    }
+    #multi-step-form input:focus,
+    #multi-step-form textarea:focus {
+        border-color: #2d6a2d !important;
+        box-shadow: 0 0 0 3px rgba(45,106,45,0.12) !important;
+        outline: none !important;
+    }
+    #multi-step-form input::placeholder,
+    #multi-step-form textarea::placeholder { color: #9ca3af !important; }
+    /* Mapbox suggestion items */
+    .mapbox-suggestion-item {
+        padding: 10px 14px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #1a1a1a;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .mapbox-suggestion-item:hover { background: #f0f7f0; color: #1a3d1a; }
+    .mapbox-suggestion-item:last-child { border-bottom: none; }
+    .mapbox-suggestion-item .place-icon { font-size: 1rem; flex-shrink: 0; }
+    /* Phone/email input valid state */
+    #ms-phone.valid, #ms-email.valid { border-color: #2d6a2d !important; }
+    #ms-phone.invalid, #ms-email.invalid { border-color: #dc2626 !important; }
+    </style>
+    <script src="script.js"></script>
+    <script>
+    // ===== AI CHAT LOGIC =====
+    const aiKnowledge = {
+        "cost": "Turf installation pricing depends on yard size and project type. Most residential installs range from $8–$18 per sq ft installed. Use our <a href='https://www.getturfinstant.com' target='_blank' style='color:#2d6a2d;font-weight:600;'>Instant Estimate Tool</a> for a quick ballpark, or <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>request a free quote</a> for a precise number.",
+        "price": "Turf installation pricing depends on yard size and project type. Most residential installs range from $8–$18 per sq ft installed. Use our <a href='https://www.getturfinstant.com' target='_blank' style='color:#2d6a2d;font-weight:600;'>Instant Estimate Tool</a> for a quick ballpark, or <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>request a free quote</a> for a precise number.",
+        "how much": "Turf installation pricing depends on yard size and project type. Most residential installs range from $8–$18 per sq ft installed. Use our <a href='https://www.getturfinstant.com' target='_blank' style='color:#2d6a2d;font-weight:600;'>Instant Estimate Tool</a> for a quick ballpark, or <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>request a free quote</a> for a precise number.",
+        "install": "Most installations are completed in just 1–2 days! Our crew handles everything — base prep, drainage, infill, and final grading. We respect your property and leave it cleaner than we found it.",
+        "long": "Most installations are completed in just 1–2 days! Our crew handles everything — base prep, drainage, infill, and final grading. We respect your property and leave it cleaner than we found it.",
+        "pet": "Yes! Our turf is 100% pet-safe. It's made from non-toxic materials with superior drainage so waste drains away quickly. No more muddy paws, dead patches from urine, or harmful chemicals. Dogs and cats love it!",
+        "dog": "Yes! Our turf is 100% pet-safe. It's made from non-toxic materials with superior drainage so waste drains away quickly. No more muddy paws, dead patches from urine, or harmful chemicals. Dogs and cats love it!",
+        "cat": "Yes! Our turf is 100% pet-safe. It's made from non-toxic materials with superior drainage so waste drains away quickly. No more muddy paws, dead patches from urine, or harmful chemicals. Dogs and cats love it!",
+        "kid": "Absolutely safe for kids! No chemicals, no pesticides, no sharp edges. Kids can play on it year-round. It's soft, cushioned, and stays green no matter what.",
+        "child": "Absolutely safe for kids! No chemicals, no pesticides, no sharp edges. Kids can play on it year-round. It's soft, cushioned, and stays green no matter what.",
+        "area": "We serve the greater Atlanta metro area including Kennesaw, Acworth, Marietta, Alpharetta, Roswell, Woodstock, Canton, Cherokee County, and surrounding communities. Call us at (706) 701-8873 to confirm your area.",
+        "serve": "We serve the greater Atlanta metro area including Kennesaw, Acworth, Marietta, Alpharetta, Roswell, Woodstock, Canton, Cherokee County, and surrounding communities. Call us at (706) 701-8873 to confirm your area.",
+        "location": "We serve the greater Atlanta metro area including Kennesaw, Acworth, Marietta, Alpharetta, Roswell, Woodstock, Canton, Cherokee County, and surrounding communities. Call us at (706) 701-8873 to confirm your area.",
+        "financ": "Yes! We offer flexible financing options to fit your budget. Many customers find that savings on water bills and lawn maintenance pay for the installation within 3–5 years. Ask us about current financing plans when you request your free quote.",
+        "payment": "Yes! We offer flexible financing options to fit your budget. Many customers find that savings on water bills and lawn maintenance pay for the installation within 3–5 years. Ask us about current financing plans when you request your free quote.",
+        "warranty": "Our turf comes with a manufacturer warranty and we stand behind our installation work. Ask our team for full warranty details when you get your quote.",
+        "maintain": "Almost zero maintenance! Occasionally rinse with a hose, brush the blades upright once or twice a year, and remove debris. No mowing, no watering, no fertilizing, no pesticides — ever.",
+        "last": "Premium artificial turf lasts 8–15 years with minimal care. Our UV-resistant turf is designed specifically for Georgia's climate and sun exposure.",
+        "putting": "We install custom putting greens of all sizes — from small backyard practice greens to full multi-hole setups. We can add undulations, fringe, and bunkers. <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>Request a free quote</a> to discuss your vision.",
+        "quote": "You can get a free personalized quote by <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>filling out our contact form</a>, or get an instant ballpark estimate at <a href='https://www.getturfinstant.com' target='_blank' style='color:#2d6a2d;font-weight:600;'>GetTurfInstant.com</a>. We'll call you within 24 hours!",
+        "estimate": "Get an instant ballpark estimate at <a href='https://www.getturfinstant.com' target='_blank' style='color:#2d6a2d;font-weight:600;'>GetTurfInstant.com</a> — enter your yard size and get a number in under 60 seconds. For a precise quote, <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>contact us here</a>.",
+        "phone": "You can reach us at <a href='tel:7067018873' style='color:#2d6a2d;font-weight:600;'>(706) 701-8873</a> — that's (706) TURF! We're happy to answer any questions.",
+        "call": "Give us a call at <a href='tel:7067018873' style='color:#2d6a2d;font-weight:600;'>(706) 701-8873</a> — that's (706) TURF! We're happy to answer any questions.",
+        "contact": "You can reach us at <a href='tel:7067018873' style='color:#2d6a2d;font-weight:600;'>(706) 701-8873</a>, email <a href='mailto:hello@lawnlogicturf.com' style='color:#2d6a2d;font-weight:600;'>hello@lawnlogicturf.com</a>, or <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>fill out our contact form</a>.",
+    };
+
+    function getAIResponse(msg) {
+        const lower = msg.toLowerCase();
+        for (const [key, response] of Object.entries(aiKnowledge)) {
+            if (lower.includes(key)) return response;
+        }
+        return "Great question! For the most accurate answer, I'd recommend <a href='https://www.lawnlogicturf.com/contact' style='color:#2d6a2d;font-weight:600;'>contacting our team directly</a> or calling us at <a href='tel:7067018873' style='color:#2d6a2d;font-weight:600;'>(706) 701-8873</a>. We're happy to help!";
+    }
+
+    function addMessage(text, type) {
+        const msgs = document.getElementById('aiMessages');
+        const div = document.createElement('div');
+        div.className = 'ai-msg ' + type;
+        div.innerHTML = text;
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function sendAIMessage(text) {
+        if (!text.trim()) return;
+        addMessage(text, 'user');
+        document.getElementById('aiInput').value = '';
+        document.getElementById('aiQuickReplies').style.display = 'none';
+        setTimeout(() => addMessage(getAIResponse(text), 'bot'), 600);
+    }
+
+    document.getElementById('aiChatToggle').addEventListener('click', () => {
+        document.getElementById('ai-chat-panel').classList.toggle('open');
+    });
+    document.getElementById('aiChatClose').addEventListener('click', () => {
+        document.getElementById('ai-chat-panel').classList.remove('open');
+    });
+    document.getElementById('aiSend').addEventListener('click', () => {
+        sendAIMessage(document.getElementById('aiInput').value);
+    });
+    document.getElementById('aiInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') sendAIMessage(e.target.value);
+    });
+    document.querySelectorAll('.ai-quick-btn').forEach(btn => {
+        btn.addEventListener('click', () => sendAIMessage(btn.dataset.q));
+    });
+
+    // ===== EXIT INTENT =====
+    let exitShown = false;
+    let exitTimer = null;
+    function showExitPopup() {
+        if (exitShown) return;
+        exitShown = true;
+        const popup = document.getElementById('exit-popup');
+        popup.style.display = 'flex';
+        if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_shown', {event_category: 'engagement'});
+    }
+    // Desktop: mouse leaves viewport top
+    document.addEventListener('mouseleave', function(e) {
+        if (e.clientY < 10) showExitPopup();
+    });
+    // Mobile: scroll up quickly (back-button intent)
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', function() {
+        const currentY = window.scrollY;
+        if (lastScrollY - currentY > 80 && currentY < 200) {
+            clearTimeout(exitTimer);
+            exitTimer = setTimeout(showExitPopup, 300);
+        }
+        lastScrollY = currentY;
+    });
+    // Time-based: show after 45 seconds if still on page
+    setTimeout(function() { if (!exitShown) showExitPopup(); }, 45000);
+
+    // Exit popup phone mask
+    (function() {
+        const ep = document.getElementById('exit-phone');
+        if (!ep) return;
+        ep.addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g, '').substring(0, 10);
+            if (v.length >= 6) v = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+            else if (v.length >= 3) v = '(' + v.substring(0,3) + ') ' + v.substring(3);
+            else if (v.length > 0) v = '(' + v;
+            e.target.value = v;
+            const errEl = document.getElementById('exit-phone-error');
+            if (errEl) errEl.style.display = 'none';
+            e.target.style.borderColor = '#ddd';
+        });
+    })();
+
+    // Live price preview as user types sqft
+    (function() {
+        const sqftEl = document.getElementById('exit-sqft');
+        if (!sqftEl) return;
+        const BASE_RATE = 12.52;
+        function calcRange(sqft) {
+            const base = sqft * BASE_RATE;
+            const low = Math.round((base * 0.70) / 50) * 50;
+            const high = Math.round((base * 1.30) / 50) * 50;
+            return { low, high };
+        }
+        function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+        sqftEl.addEventListener('input', function() {
+            const sqft = parseInt(this.value, 10);
+            const preview = document.getElementById('exit-price-preview');
+            const rangeEl = document.getElementById('exit-price-range');
+            const sqftDisp = document.getElementById('exit-sqft-display');
+            const sqftErr = document.getElementById('exit-sqft-error');
+            if (sqftErr) sqftErr.style.display = 'none';
+            if (sqft >= 50 && sqft <= 50000) {
+                const { low, high } = calcRange(sqft);
+                if (rangeEl) rangeEl.textContent = fmt(low) + ' – ' + fmt(high);
+                if (sqftDisp) sqftDisp.textContent = sqft.toLocaleString();
+                if (preview) preview.style.display = 'block';
+                this.style.borderColor = '#2d6a2d';
+            } else {
+                if (preview) preview.style.display = 'none';
+                this.style.borderColor = '#e5e7eb';
+            }
+        });
+    })();
+    document.getElementById('exit-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const name = document.getElementById('exit-name').value.trim();
+        const phone = document.getElementById('exit-phone').value;
+        const sqftVal = parseInt(document.getElementById('exit-sqft').value, 10);
+        // Validate phone
+        const digits = phone.replace(/\D/g, '');
+        if (digits.length < 10) {
+            const errEl = document.getElementById('exit-phone-error');
+            if (errEl) errEl.style.display = 'block';
+            document.getElementById('exit-phone').style.borderColor = '#e53e3e';
+            return;
+        }
+        // Validate sqft
+        if (!sqftVal || sqftVal < 50 || sqftVal > 50000) {
+            const sqftErr = document.getElementById('exit-sqft-error');
+            if (sqftErr) sqftErr.style.display = 'block';
+            document.getElementById('exit-sqft').style.borderColor = '#e53e3e';
+            return;
+        }
+        // Calculate price range
+        const BASE_RATE = 12.52;
+        const base = sqftVal * BASE_RATE;
+        const low = Math.round((base * 0.70) / 50) * 50;
+        const high = Math.round((base * 1.30) / 50) * 50;
+        const fmt = n => '$' + n.toLocaleString('en-US');
+        const priceRange = fmt(low) + ' – ' + fmt(high);
+        const submitBtn = document.getElementById('exit-submit-btn');
+        if (submitBtn) { submitBtn.textContent = 'Sending your price...'; submitBtn.disabled = true; }
+        // Fire GA/Ads conversion events
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'exit_intent_submit', {event_category: 'lead', event_label: phone, value: sqftVal});
+            gtag('event', 'conversion', {'send_to': 'AW-18016868257'});
+        }
+        // Send lead + price range to Make.com webhook
+        try {
+            await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    fullName: name,
+                    phone: phone,
+                    squareFeet: sqftVal,
+                    estimatedRangeLow: low,
+                    estimatedRangeHigh: high,
+                    estimatedRange: priceRange,
+                    source: 'Exit Intent Popup — Instant Price Calculator',
+                    smsMessage: 'Hi ' + name.split(' ')[0] + '! Your LawnLogic estimate for ~' + sqftVal.toLocaleString() + ' sq ft: ' + priceRange + '. This is a ballpark — call (706) 701-8873 for exact measurements and a firm quote. — LawnLogic Team',
+                    timestamp: new Date().toISOString(),
+                    referrer: document.referrer
+                })
+            });
+        } catch(err) { console.error('Exit popup webhook error:', err); }
+        // Show success with price range
+        const firstName = name.split(' ')[0];
+        document.getElementById('exit-popup').innerHTML = '<div style="padding:2.5rem 2rem;text-align:center;"><div style="font-size:3rem;margin-bottom:0.5rem;">✅</div><h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.5rem;">On its way, ' + firstName + '!</h3><div style="background:linear-gradient(135deg,#1a3a1a,#2d6a2d);border-radius:12px;padding:1rem;margin:1rem 0;"><div style="font-size:0.72rem;color:#86efac;font-weight:600;letter-spacing:0.05em;margin-bottom:4px;">YOUR ESTIMATE FOR ~' + sqftVal.toLocaleString() + ' SQ FT</div><div style="font-size:1.6rem;font-weight:900;color:#fff;">' + priceRange + '</div><div style="font-size:0.7rem;color:#bbf7d0;margin-top:4px;">We just texted this to ' + phone + '</div></div><p style="color:#555;font-size:0.9rem;margin-bottom:1rem;">For exact measurements and a firm quote, call us:</p><a href="tel:+17067018873" style="display:inline-flex;align-items:center;gap:6px;background:#2d6a2d;color:#fff;font-weight:700;font-size:1rem;padding:12px 20px;border-radius:10px;text-decoration:none;">📞 Call (706) 701-8873</a></div>';
+        setTimeout(() => { document.getElementById('exit-popup').style.display = 'none'; }, 8000);
+    });
+    </script>
+</body>
+</html>
