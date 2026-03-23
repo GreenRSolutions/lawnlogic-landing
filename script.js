@@ -460,6 +460,9 @@ function initMultiStepForm() {
                     gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
                     gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
                 }
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', { content_name: 'Full Quote Form', value: 1.0, currency: 'USD' });
+                }
 
                 // Show success step
                 steps.forEach(s => s.classList.remove('active'));
@@ -532,6 +535,9 @@ function initFormHandler() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
                     gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
+                }
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', { content_name: 'Quote Form', value: 1.0, currency: 'USD' });
                 }
                 if (formMessage) {
                     formMessage.textContent = 'Thank you! We received your quote request. We\'ll call you within 24 hours.';
