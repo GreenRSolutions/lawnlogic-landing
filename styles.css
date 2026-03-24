@@ -1541,4 +1541,36 @@ section {
     .faq h2 {
         color: #E5E7EB !important;
     }
+
+    /* Reviews / Elfsight section */
+    .reviews-section {
+        background-color: #141820 !important;
+    }
+    .reviews-section h2 {
+        color: #E5E7EB !important;
+    }
+    .reviews-section p {
+        color: #B0B8C8 !important;
+    }
+
+    /* Trust pills text */
+    .trust-pills {
+        background-color: transparent !important;
+    }
+    .trust-pill {
+        background-color: #1A1F2E !important;
+        color: #E5E7EB !important;
+        border-color: #3A4152 !important;
+    }
+
+    /* Eyebrow items */
+    .eyebrow-item {
+        color: #B0B8C8 !important;
+    }
+
+    /* Logo background fix — logo has white bg, add subtle dark bg */
+    .logo {
+        background: transparent;
+        border-radius: 4px;
+    }
 }
