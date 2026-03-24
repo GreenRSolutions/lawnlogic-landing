@@ -1289,13 +1289,21 @@ section {
     }
 
     /* Light-background sections need dark bg in dark mode */
+    /* Use actual class names from HTML — .faq not .faq-section, .city-content not .city-section */
     .lead-section,
-    .before-after-section,
-    .testimonials,
-    .social-proof-bar,
+    .features,
+    .cta-band,
     .trust-strip,
-    .city-section,
-    .faq-section {
+    .city-content,
+    .faq {
+        background-color: #141820 !important;
+    }
+
+    /* Inline-styled before/after section (no class) */
+    section[style*="background: #fff"],
+    section[style*="background:#fff"],
+    section[style*="background-color: white"],
+    section[style*="background-color:#fff"] {
         background-color: #141820 !important;
     }
 
@@ -1460,9 +1468,77 @@ section {
         color: #E5E7EB !important;
     }
 
-    /* Pain section heading */
-    .pain-section h2,
-    .pain-section h3 {
+    /* Pain section heading — actual class is .lead-column.pain-column */
+    .lead-column.pain-column h2,
+    .lead-column.pain-column h3,
+    .lead-column.pain-column p {
+        color: #E5E7EB !important;
+    }
+
+    /* Pain cards text */
+    .pain-card h3,
+    .pain-card p {
+        color: #E5E7EB !important;
+    }
+
+    /* CTA band */
+    .cta-band h2,
+    .cta-band p {
+        color: #E5E7EB !important;
+    }
+
+    /* City content section */
+    .city-content h2,
+    .city-content p {
+        color: #E5E7EB !important;
+    }
+
+    /* Features section */
+    .features h2,
+    .features p {
+        color: #E5E7EB !important;
+    }
+
+    /* Trust strip background */
+    .trust-strip {
+        background-color: #141820 !important;
+    }
+    .trust-eyebrow,
+    .trust-pills {
+        background-color: transparent !important;
+    }
+
+    /* Ensure all section backgrounds are dark */
+    section {
+        background-color: #0F1419;
+    }
+    section.hero {
+        background: linear-gradient(135deg, #0D1117 0%, #1A1F2E 100%) !important;
+    }
+    section.lead-section {
+        background-color: #141820 !important;
+    }
+    section.faq {
+        background-color: #141820 !important;
+    }
+    section.features {
+        background-color: #141820 !important;
+    }
+    section.city-content {
+        background-color: #141820 !important;
+    }
+    section.trust-strip {
+        background-color: #1A1F2E !important;
+    }
+    section.cta-band {
+        background: linear-gradient(135deg, #0D1117 0%, #1A1F2E 100%) !important;
+    }
+
+    /* FAQ question text must be visible */
+    .faq-question span {
+        color: #E5E7EB !important;
+    }
+    .faq h2 {
         color: #E5E7EB !important;
     }
 }
