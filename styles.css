@@ -198,7 +198,10 @@ a:hover {
 
 .logo {
     height: 40px;
-    width: auto;
+    width: 40px;
+    max-width: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .logo-text {
@@ -1568,9 +1571,73 @@ section {
         color: #B0B8C8 !important;
     }
 
-    /* Logo background fix — logo has white bg, add subtle dark bg */
+    /* Logo */
     .logo {
         background: transparent;
         border-radius: 4px;
+    }
+    /* Sticky header dark */
+    .sticky-header {
+        background-color: #141820 !important;
+    }
+    /* Form card dark mode */
+    .form-card {
+        background-color: #1A1F2E !important;
+        border-color: #3A4152 !important;
+    }
+    .form-card h2 {
+        color: #E5E7EB !important;
+    }
+    .form-subtitle {
+        color: #B0B8C8 !important;
+    }
+    /* Project type cards */
+    .project-type-card {
+        background: #252B3B !important;
+        border-color: #3A4152 !important;
+    }
+    /* All inline color: #555 and #888 in dark mode */
+    .form-card [style*="color: #555"],
+    .form-card [style*="color:#555"] {
+        color: #B0B8C8 !important;
+    }
+    .form-card [style*="color: #888"],
+    .form-card [style*="color:#888"] {
+        color: #8A94A6 !important;
+    }
+    .form-card [style*="color: #1a1a1a"],
+    .form-card [style*="color:#1a1a1a"] {
+        color: #E5E7EB !important;
+    }
+    .form-card [style*="color: #1a3d1a"],
+    .form-card [style*="color:#1a3d1a"] {
+        color: #A8D5A8 !important;
+    }
+    /* Instant estimate CTA box */
+    .form-card [style*="background: #f0f7f0"],
+    .form-card [style*="background:#f0f7f0"] {
+        background: #1A2A1A !important;
+    }
+    /* Progress bar track */
+    .form-card [style*="background:#e8f5e9"],
+    .form-card [style*="background: #e8f5e9"] {
+        background: #1A2A1A !important;
+    }
+    /* Form inputs */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: #252B3B !important;
+        color: #E5E7EB !important;
+        border-color: #3A4152 !important;
+    }
+    /* Success state inline colors */
+    #form-success [style*="color:#1a3d1a"],
+    #form-success [style*="color: #1a3d1a"] {
+        color: #A8D5A8 !important;
+    }
+    #form-success [style*="color:#555"],
+    #form-success [style*="color: #555"] {
+        color: #B0B8C8 !important;
     }
 }
