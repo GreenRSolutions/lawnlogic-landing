@@ -1273,6 +1273,87 @@ section {
         color: #E5E7EB;
     }
 
+    /* Global heading override — prevents dark text on dark bg */
+    h1, h2, h3, h4, h5, h6 {
+        color: #E5E7EB !important;
+    }
+
+    p {
+        color: #B0B8C8;
+    }
+
+    /* Sticky header */
+    .sticky-header {
+        background-color: #1A1F2E !important;
+        border-bottom: 1px solid #3A4152;
+    }
+
+    /* Light-background sections need dark bg in dark mode */
+    .lead-section,
+    .before-after-section,
+    .testimonials,
+    .social-proof-bar,
+    .trust-strip,
+    .city-section,
+    .faq-section {
+        background-color: #141820 !important;
+    }
+
+    /* Lead form section text */
+    .lead-section h2,
+    .lead-section h3,
+    .lead-section p,
+    .lead-section label {
+        color: #E5E7EB !important;
+    }
+
+    /* Step labels */
+    .step-label,
+    .step-number {
+        color: #B0B8C8 !important;
+    }
+
+    /* City card Learn More link */
+    .city-card a {
+        color: #4ade80 !important;
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #0D1117 !important;
+    }
+    .footer h4,
+    .footer p {
+        color: #E5E7EB !important;
+    }
+    .footer a {
+        color: #9CA3AF !important;
+    }
+    .footer a:hover {
+        color: #E5E7EB !important;
+    }
+    .footer-bottom {
+        border-top-color: #3A4152 !important;
+        color: #6B7280 !important;
+    }
+
+    /* Trust strip text */
+    .trust-strip p,
+    .trust-strip span {
+        color: #B0B8C8 !important;
+    }
+
+    /* Testimonial author */
+    .testimonial-author {
+        color: #9CA3AF !important;
+    }
+
+    /* Social proof bar */
+    .social-proof-bar p,
+    .social-proof-bar span {
+        color: #B0B8C8 !important;
+    }
+
     .btn-secondary {
         color: var(--primary-green-light);
         border-color: var(--primary-green-light);
@@ -1312,17 +1393,32 @@ section {
     }
 
     .faq-item {
-        background-color: #1A1F2E;
-        border-color: #3A4152;
-        color: #E5E7EB;
-    }
-
-    .faq-question {
+        background-color: #1A1F2E !important;
+        border-color: #3A4152 !important;
         color: #E5E7EB !important;
     }
 
+    .faq-question {
+        background-color: #1A1F2E !important;
+        color: #E5E7EB !important;
+    }
+
+    .faq-question:hover {
+        background-color: #1E2535 !important;
+    }
+
     .faq-answer {
+        background-color: #141820 !important;
         color: #B0B8C8 !important;
+    }
+
+    .faq-answer p {
+        background-color: #141820 !important;
+        color: #B0B8C8 !important;
+    }
+
+    .faq {
+        background-color: #0F1419 !important;
     }
 
     /* AI Chat dark mode fix */
