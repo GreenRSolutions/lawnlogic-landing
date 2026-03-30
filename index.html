@@ -1023,6 +1023,14 @@
         if (typeof gtag !== 'undefined') {
             gtag('event', 'exit_intent_submit', {event_category: 'lead', event_label: phone, value: sqftVal});
             gtag('event', 'conversion', {'send_to': 'AW-18016868257'});
+            gtag('event', 'conversion', {'send_to': 'AW-17770927319'});
+            gtag('event', 'conversion', {'send_to': 'AW-17775300843'});
+        }
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', {content_name: 'Exit Intent Popup', value: 1.0, currency: 'USD'});
+        }
+        if (typeof ndp !== 'undefined') {
+            ndp('track', 'Conversion');
         }
         // Send lead + price range to Make.com webhook
         try {
