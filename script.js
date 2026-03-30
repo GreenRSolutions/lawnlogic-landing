@@ -621,6 +621,14 @@ function initEventTracking() {
             });
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
+                gtag('event', 'conversion', { 'send_to': 'AW-17770927319' });
+                gtag('event', 'conversion', { 'send_to': 'AW-17775300843' });
+            }
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', { content_name: 'Phone Click', value: 1.0, currency: 'USD' });
+            }
+            if (typeof ndp !== 'undefined') {
+                ndp('track', 'Conversion');
             }
         });
     });
