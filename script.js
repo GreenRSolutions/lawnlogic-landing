@@ -459,7 +459,7 @@ function initMultiStepForm() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
                     gtag('event', 'conversion', { 'send_to': 'AW-17770927319' });
-                    gtag('event', 'conversion', { 'send_to': 'AW-17775300843' });
+                    gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
                     gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
                 }
                 if (typeof fbq !== 'undefined') {
@@ -540,7 +540,7 @@ function initFormHandler() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
                     gtag('event', 'conversion', { 'send_to': 'AW-17770927319' });
-                    gtag('event', 'conversion', { 'send_to': 'AW-17775300843' });
+                    gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
                     gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
                 }
                 if (typeof fbq !== 'undefined') {
@@ -622,7 +622,7 @@ function initEventTracking() {
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
                 gtag('event', 'conversion', { 'send_to': 'AW-17770927319' });
-                gtag('event', 'conversion', { 'send_to': 'AW-17775300843' });
+                gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
             }
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', { content_name: 'Phone Click', value: 1.0, currency: 'USD' });
