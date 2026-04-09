@@ -620,8 +620,8 @@ function initEventTracking() {
                 click_location: getClickLocation(this),
             });
             if (typeof gtag !== 'undefined') {
-                gtag('event', 'conversion', { 'send_to': 'AW-18016868257' });
-                gtag('event', 'conversion', { 'send_to': 'AW-17770927319' });
+                gtag('event', 'conversion', { 'send_to': 'AW-18016868257/KIFPCJfi-YgcEKGvjo9D', 'value': 1.0, 'currency': 'USD' });
+                gtag('event', 'conversion', { 'send_to': 'AW-17770927319/SKTVCMzZl0AcENep651C', 'value': 1.0, 'currency': 'USD' });
                 gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
             }
             if (typeof fbq !== 'undefined') {
