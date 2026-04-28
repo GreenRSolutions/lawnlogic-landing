@@ -1124,16 +1124,16 @@
         setTimeout(() => { document.getElementById('exit-popup').style.display = 'none'; }, 8000);
         // Send lead delivery in parallel — don't block UI
         Promise.allSettled([
-            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+            fetch('/api/lead', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    _subject: '🔥 Exit Popup Lead — ' + name + ' — ' + priceRange,
                     Name: name,
                     Phone: phone,
-                    'Square Feet': sqftVal,
-                    'Price Estimate': priceRange,
+                    'Square Footage': sqftVal,
+                    'Project Type': 'Exit Popup — ' + priceRange,
                     Source: 'Exit Intent Popup — Instant Price Calculator',
+                    'Form Type': 'exit_popup',
                     Timestamp: new Date().toISOString()
                 })
             }),
@@ -1153,7 +1153,7 @@
                     referrer: document.referrer
                 })
             })
-        ]).catch(err => console.error('Lead delivery error:', err));
+        ]).then(results => results.forEach((r, i) => { if (r.status === 'rejected') console.error('Lead delivery error (channel ' + i + '):', r.reason); }));
     });
     </script>
 </body>
