@@ -381,30 +381,47 @@ function initMultiStepForm() {
         abandonmentFired = true;
         const projectType = document.getElementById('ms-projectType')?.value || '';
         trackEvent('partial_lead_captured', { has_phone: !!capturedPhone, has_name: !!capturedName });
+        const partialData = {
+            fullName: capturedName || 'Unknown',
+            phone: capturedPhone,
+            email: '',
+            projectType: projectType,
+            propertyAddress: '',
+            message: '',
+            source: 'Partial Lead — instant.lawnlogicturf.com',
+            notifyEmail: 'dusty@lawnlogicturf.com',
+            smsMessage: "Hi " + (capturedName ? capturedName.split(' ')[0] : 'there') + "! We saw you're interested in more information about artificial turf — we will reach out soon! Or you can call us for faster service at (706) 701-8873. - LawnLogic Turf",
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            referrer: document.referrer,
+            utm_source: getUTMParam('utm_source'),
+            utm_medium: getUTMParam('utm_medium'),
+            utm_campaign: getUTMParam('utm_campaign'),
+            utm_content: getUTMParam('utm_content'),
+            utm_term: getUTMParam('utm_term'),
+            gclid: getUTMParam('gclid'),
+        };
+        // Send to email via FormSubmit (primary)
+        try {
+            await fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: '⚡ Partial Lead — ' + (capturedName || 'Unknown') + ' — ' + capturedPhone,
+                    Name: partialData.fullName,
+                    Phone: partialData.phone,
+                    'Project Type': partialData.projectType,
+                    Source: partialData.source,
+                    Timestamp: partialData.timestamp,
+                }),
+            });
+        } catch(err) { /* silent */ }
+        // Also try Make.com webhook (backup)
         try {
             await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    fullName: capturedName || 'Unknown',
-                    phone: capturedPhone,
-                    email: '',
-                    projectType: projectType,
-                    propertyAddress: '',
-                    message: '',
-                    source: 'Partial Lead — instant.lawnlogicturf.com',
-                    notifyEmail: 'dusty@lawnlogicturf.com',
-                    smsMessage: "Hi " + (capturedName ? capturedName.split(' ')[0] : 'there') + "! We saw you're interested in more information about artificial turf — we will reach out soon! Or you can call us for faster service at (706) 701-8873. - LawnLogic Turf",
-                    timestamp: new Date().toISOString(),
-                    userAgent: navigator.userAgent,
-                    referrer: document.referrer,
-                    utm_source: getUTMParam('utm_source'),
-                    utm_medium: getUTMParam('utm_medium'),
-                    utm_campaign: getUTMParam('utm_campaign'),
-                    utm_content: getUTMParam('utm_content'),
-                    utm_term: getUTMParam('utm_term'),
-                    gclid: getUTMParam('gclid'),
-                })
+                body: JSON.stringify(partialData),
             });
         } catch(err) { /* silent */ }
     }
@@ -443,52 +460,63 @@ function initMultiStepForm() {
             time_to_submit_seconds: timeToSubmit,
         };
 
-        try {
-            const response = await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+        // Fire tracking events IMMEDIATELY — do not gate on webhook success
+        trackEvent('landing_form_submit_success', {
+            form_type: 'multi_step_quote_form',
+            project_type: formData.projectType,
+            time_to_submit: timeToSubmit,
+        });
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', { 'send_to': 'AW-18016868257/KIFPCJfi-YgcEKGvjo9D', 'value': 1.0, 'currency': 'USD' });
+            gtag('event', 'conversion', { 'send_to': 'AW-17770927319/SKTVCMzZl0AcENep651C', 'value': 1.0, 'currency': 'USD' });
+            gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
+            gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
+        }
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', { content_name: 'Full Quote Form', value: 1.0, currency: 'USD' });
+        }
+        if (typeof ndp !== 'undefined') {
+            ndp('track', 'Conversion');
+        }
+
+        // Show success step IMMEDIATELY — user submitted, don't make them wait
+        steps.forEach(s => s.classList.remove('active'));
+        const successStep = document.getElementById('form-success');
+        if (successStep) {
+            successStep.style.display = 'block';
+            const firstName = formData.fullName.split(' ')[0];
+            const successName = document.getElementById('success-name');
+            if (successName) successName.textContent = firstName + '!';
+        }
+        if (progressBar) progressBar.style.width = '100%';
+        if (progressText) progressText.textContent = 'Complete!';
+
+        // Send lead delivery in parallel — don't block UI
+        Promise.allSettled([
+            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: '🔥 New Lead — ' + (formData.projectType || 'Turf Quote') + ' — ' + formData.fullName,
+                    Name: formData.fullName,
+                    Phone: formData.phone,
+                    Email: formData.email,
+                    'Project Type': formData.projectType,
+                    Address: formData.propertyAddress,
+                    Message: formData.message,
+                    Source: formData.source,
+                    'UTM Source': formData.utm_source || '',
+                    'UTM Campaign': formData.utm_campaign || '',
+                    'Google Click ID': formData.gclid || '',
+                    Timestamp: formData.timestamp,
+                }),
+            }),
+            fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
-                trackEvent('landing_form_submit_success', {
-                    form_type: 'multi_step_quote_form',
-                    project_type: formData.projectType,
-                    time_to_submit: timeToSubmit,
-                });
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', { 'send_to': 'AW-18016868257/KIFPCJfi-YgcEKGvjo9D', 'value': 1.0, 'currency': 'USD' });
-                    gtag('event', 'conversion', { 'send_to': 'AW-17770927319/SKTVCMzZl0AcENep651C', 'value': 1.0, 'currency': 'USD' });
-                    gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
-                    gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
-                }
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead', { content_name: 'Full Quote Form', value: 1.0, currency: 'USD' });
-                }
-                if (typeof ndp !== 'undefined') {
-                    ndp('track', 'Conversion');
-                }
-
-                // Show success step
-                steps.forEach(s => s.classList.remove('active'));
-                const successStep = document.getElementById('form-success');
-                if (successStep) {
-                    successStep.style.display = 'block';
-                    const firstName = formData.fullName.split(' ')[0];
-                    const successName = document.getElementById('success-name');
-                    if (successName) successName.textContent = firstName + '!';
-                }
-                if (progressBar) progressBar.style.width = '100%';
-                if (progressText) progressText.textContent = 'Complete!';
-            } else {
-                throw new Error('Webhook failed');
-            }
-        } catch(err) {
-            trackEvent('landing_form_submit_error', { error: err.message });
-            const errorMsg = document.getElementById('ms-error');
-            if (errorMsg) { errorMsg.style.display = 'block'; }
-            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Get My Free Quote →'; }
-        }
+            })
+        ]).catch(err => console.error('Lead delivery error:', err));
     });
 
     showStep(0);
@@ -528,47 +556,54 @@ function initFormHandler() {
             gclid: getUTMParam('gclid'),
         };
 
-        try {
-            const response = await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+        // Fire tracking events IMMEDIATELY — do not gate on webhook success
+        trackEvent('landing_form_submit_success', { form_type: 'quote_form', project_type: formData.projectType });
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', { 'send_to': 'AW-18016868257/KIFPCJfi-YgcEKGvjo9D', 'value': 1.0, 'currency': 'USD' });
+            gtag('event', 'conversion', { 'send_to': 'AW-17770927319/SKTVCMzZl0AcENep651C', 'value': 1.0, 'currency': 'USD' });
+            gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
+            gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
+        }
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', { content_name: 'Quote Form', value: 1.0, currency: 'USD' });
+        }
+        if (typeof ndp !== 'undefined') {
+            ndp('track', 'Conversion');
+        }
+
+        // Show success IMMEDIATELY
+        if (formMessage) {
+            formMessage.textContent = 'Thank you! We received your quote request. We\'ll call you within 24 hours.';
+            formMessage.className = 'form-message success';
+            formMessage.style.display = 'block';
+        }
+        form.reset();
+        if (submitBtn) { submitBtn.textContent = 'Get My Free Quote'; submitBtn.disabled = false; }
+        setTimeout(() => { if (formMessage) formMessage.style.display = 'none'; }, 5000);
+
+        // Send lead delivery in parallel — don't block UI
+        Promise.allSettled([
+            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: '🔥 New Lead — ' + (formData.projectType || 'Turf Quote') + ' — ' + formData.fullName,
+                    Name: formData.fullName,
+                    Phone: formData.phone,
+                    Email: formData.email,
+                    'Project Type': formData.projectType,
+                    Address: formData.propertyAddress,
+                    Message: formData.message,
+                    Source: formData.source,
+                    Timestamp: formData.timestamp,
+                }),
+            }),
+            fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
-                trackEvent('landing_form_submit_success', { form_type: 'quote_form', project_type: formData.projectType });
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', { 'send_to': 'AW-18016868257/KIFPCJfi-YgcEKGvjo9D', 'value': 1.0, 'currency': 'USD' });
-                    gtag('event', 'conversion', { 'send_to': 'AW-17770927319/SKTVCMzZl0AcENep651C', 'value': 1.0, 'currency': 'USD' });
-                    gtag('event', 'conversion', { 'send_to': 'AW-17775300843/ApIAC0vil5ccE0uh9ptC', 'value': 1.0, 'currency': 'USD' });
-                    gtag('event', 'generate_lead', { currency: 'USD', value: 1.0 });
-                }
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead', { content_name: 'Quote Form', value: 1.0, currency: 'USD' });
-                }
-                if (typeof ndp !== 'undefined') {
-                    ndp('track', 'Conversion');
-                }
-                if (formMessage) {
-                    formMessage.textContent = 'Thank you! We received your quote request. We\'ll call you within 24 hours.';
-                    formMessage.className = 'form-message success';
-                    formMessage.style.display = 'block';
-                }
-                form.reset();
-                if (submitBtn) { submitBtn.textContent = 'Get My Free Quote'; submitBtn.disabled = false; }
-                setTimeout(() => { if (formMessage) formMessage.style.display = 'none'; }, 5000);
-            } else {
-                throw new Error('Webhook request failed');
-            }
-        } catch(error) {
-            trackEvent('landing_form_submit_error', { error: error.message });
-            if (formMessage) {
-                formMessage.textContent = 'There was an issue submitting your quote. Please call us at (706) 701-8873.';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-            }
-            if (submitBtn) { submitBtn.textContent = 'Get My Free Quote'; submitBtn.disabled = false; }
-        }
+            })
+        ]).catch(err => console.error('Lead delivery error:', err));
     });
 }
 

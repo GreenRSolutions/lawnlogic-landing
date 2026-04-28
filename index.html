@@ -1118,9 +1118,26 @@
         if (typeof ndp !== 'undefined') {
             ndp('track', 'Conversion');
         }
-        // Send lead + price range to Make.com webhook
-        try {
-            await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+        // Show success with price range IMMEDIATELY — don't block on network calls
+        const firstName = name.split(' ')[0];
+        document.getElementById('exit-popup').innerHTML = '<div style="padding:2.5rem 2rem;text-align:center;"><div style="font-size:3rem;margin-bottom:0.5rem;">✅</div><h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.5rem;">On its way, ' + firstName + '!</h3><div style="background:linear-gradient(135deg,#1a3a1a,#2d6a2d);border-radius:12px;padding:1rem;margin:1rem 0;"><div style="font-size:0.72rem;color:#86efac;font-weight:600;letter-spacing:0.05em;margin-bottom:4px;">YOUR ESTIMATE FOR ~' + sqftVal.toLocaleString() + ' SQ FT</div><div style="font-size:1.6rem;font-weight:900;color:#fff;">' + priceRange + '</div><div style="font-size:0.7rem;color:#bbf7d0;margin-top:4px;">We just texted this to ' + phone + '</div></div><p style="color:#555;font-size:0.9rem;margin-bottom:1rem;">For exact measurements and a firm quote, call us:</p><a href="tel:+17067018873" style="display:inline-flex;align-items:center;gap:6px;background:#2d6a2d;color:#fff;font-weight:700;font-size:1rem;padding:12px 20px;border-radius:10px;text-decoration:none;">📞 Call (706) 701-8873</a></div>';
+        setTimeout(() => { document.getElementById('exit-popup').style.display = 'none'; }, 8000);
+        // Send lead delivery in parallel — don't block UI
+        Promise.allSettled([
+            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify({
+                    _subject: '🔥 Exit Popup Lead — ' + name + ' — ' + priceRange,
+                    Name: name,
+                    Phone: phone,
+                    'Square Feet': sqftVal,
+                    'Price Estimate': priceRange,
+                    Source: 'Exit Intent Popup — Instant Price Calculator',
+                    Timestamp: new Date().toISOString()
+                })
+            }),
+            fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -1135,12 +1152,8 @@
                     timestamp: new Date().toISOString(),
                     referrer: document.referrer
                 })
-            });
-        } catch(err) { console.error('Exit popup webhook error:', err); }
-        // Show success with price range
-        const firstName = name.split(' ')[0];
-        document.getElementById('exit-popup').innerHTML = '<div style="padding:2.5rem 2rem;text-align:center;"><div style="font-size:3rem;margin-bottom:0.5rem;">✅</div><h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.5rem;">On its way, ' + firstName + '!</h3><div style="background:linear-gradient(135deg,#1a3a1a,#2d6a2d);border-radius:12px;padding:1rem;margin:1rem 0;"><div style="font-size:0.72rem;color:#86efac;font-weight:600;letter-spacing:0.05em;margin-bottom:4px;">YOUR ESTIMATE FOR ~' + sqftVal.toLocaleString() + ' SQ FT</div><div style="font-size:1.6rem;font-weight:900;color:#fff;">' + priceRange + '</div><div style="font-size:0.7rem;color:#bbf7d0;margin-top:4px;">We just texted this to ' + phone + '</div></div><p style="color:#555;font-size:0.9rem;margin-bottom:1rem;">For exact measurements and a firm quote, call us:</p><a href="tel:+17067018873" style="display:inline-flex;align-items:center;gap:6px;background:#2d6a2d;color:#fff;font-weight:700;font-size:1rem;padding:12px 20px;border-radius:10px;text-decoration:none;">📞 Call (706) 701-8873</a></div>';
-        setTimeout(() => { document.getElementById('exit-popup').style.display = 'none'; }, 8000);
+            })
+        ]).catch(err => console.error('Lead delivery error:', err));
     });
     </script>
 </body>
