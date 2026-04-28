@@ -491,9 +491,9 @@ function initMultiStepForm() {
         if (progressBar) progressBar.style.width = '100%';
         if (progressText) progressText.textContent = 'Complete!';
 
-        // Send lead to email via FormSubmit (primary delivery)
-        try {
-            await fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+        // Send lead delivery in parallel — don't block UI
+        Promise.allSettled([
+            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
@@ -510,17 +510,13 @@ function initMultiStepForm() {
                     'Google Click ID': formData.gclid || '',
                     Timestamp: formData.timestamp,
                 }),
-            });
-        } catch(err) { console.error('FormSubmit email error:', err); }
-
-        // Also try Make.com webhook (backup — may be inactive)
-        try {
-            await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+            }),
+            fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
-            });
-        } catch(err) { console.error('Make.com webhook error:', err); }
+            })
+        ]).catch(err => console.error('Lead delivery error:', err));
     });
 
     showStep(0);
@@ -585,9 +581,9 @@ function initFormHandler() {
         if (submitBtn) { submitBtn.textContent = 'Get My Free Quote'; submitBtn.disabled = false; }
         setTimeout(() => { if (formMessage) formMessage.style.display = 'none'; }, 5000);
 
-        // Send lead to email via FormSubmit (primary delivery)
-        try {
-            await fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+        // Send lead delivery in parallel — don't block UI
+        Promise.allSettled([
+            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
@@ -601,17 +597,13 @@ function initFormHandler() {
                     Source: formData.source,
                     Timestamp: formData.timestamp,
                 }),
-            });
-        } catch(err) { console.error('FormSubmit email error:', err); }
-
-        // Also try Make.com webhook (backup — may be inactive)
-        try {
-            await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+            }),
+            fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
-            });
-        } catch(err) { console.error('Make.com webhook error:', err); }
+            })
+        ]).catch(err => console.error('Lead delivery error:', err));
     });
 }
 
