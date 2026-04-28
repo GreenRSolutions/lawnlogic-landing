@@ -99,7 +99,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'LawnLogic Leads <noreply@mail.lawnlogicturf.com>',
-        to: ['dusty@lawnlogicturf.com'],
+        to: ['dustytwodrops@gmail.com'],
         subject,
         text: textBody,
         html: htmlBody,
