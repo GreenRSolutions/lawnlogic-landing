@@ -401,29 +401,26 @@ function initMultiStepForm() {
             utm_term: getUTMParam('utm_term'),
             gclid: getUTMParam('gclid'),
         };
-        // Send to email via FormSubmit (primary)
-        try {
-            await fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+        // Send partial lead to email + Make.com backup
+        Promise.allSettled([
+            fetch('/api/lead', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    _subject: '⚡ Partial Lead — ' + (capturedName || 'Unknown') + ' — ' + capturedPhone,
                     Name: partialData.fullName,
                     Phone: partialData.phone,
                     'Project Type': partialData.projectType,
                     Source: partialData.source,
+                    'Form Type': 'partial_abandonment',
                     Timestamp: partialData.timestamp,
                 }),
-            });
-        } catch(err) { /* silent */ }
-        // Also try Make.com webhook (backup)
-        try {
-            await fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
+            }),
+            fetch('https://hook.us2.make.com/m4ed7smu5owlvj3se8mpk61daymf62yh', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(partialData),
-            });
-        } catch(err) { /* silent */ }
+            })
+        ]).then(results => results.forEach((r, i) => { if (r.status === 'rejected') console.error('Partial lead delivery error (channel ' + i + '):', r.reason); }));
     }
 
     // Form submission
@@ -493,11 +490,10 @@ function initMultiStepForm() {
 
         // Send lead delivery in parallel — don't block UI
         Promise.allSettled([
-            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+            fetch('/api/lead', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    _subject: '🔥 New Lead — ' + (formData.projectType || 'Turf Quote') + ' — ' + formData.fullName,
                     Name: formData.fullName,
                     Phone: formData.phone,
                     Email: formData.email,
@@ -508,6 +504,7 @@ function initMultiStepForm() {
                     'UTM Source': formData.utm_source || '',
                     'UTM Campaign': formData.utm_campaign || '',
                     'Google Click ID': formData.gclid || '',
+                    'Form Type': 'multi_step_quote',
                     Timestamp: formData.timestamp,
                 }),
             }),
@@ -516,7 +513,7 @@ function initMultiStepForm() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             })
-        ]).catch(err => console.error('Lead delivery error:', err));
+        ]).then(results => results.forEach((r, i) => { if (r.status === 'rejected') console.error('Lead delivery error (channel ' + i + '):', r.reason); }));
     });
 
     showStep(0);
@@ -583,11 +580,10 @@ function initFormHandler() {
 
         // Send lead delivery in parallel — don't block UI
         Promise.allSettled([
-            fetch('https://formsubmit.co/ajax/dusty@lawnlogicturf.com', {
+            fetch('/api/lead', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    _subject: '🔥 New Lead — ' + (formData.projectType || 'Turf Quote') + ' — ' + formData.fullName,
                     Name: formData.fullName,
                     Phone: formData.phone,
                     Email: formData.email,
@@ -595,6 +591,7 @@ function initFormHandler() {
                     Address: formData.propertyAddress,
                     Message: formData.message,
                     Source: formData.source,
+                    'Form Type': 'legacy_quote',
                     Timestamp: formData.timestamp,
                 }),
             }),
@@ -603,7 +600,7 @@ function initFormHandler() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             })
-        ]).catch(err => console.error('Lead delivery error:', err));
+        ]).then(results => results.forEach((r, i) => { if (r.status === 'rejected') console.error('Lead delivery error (channel ' + i + '):', r.reason); }));
     });
 }
 
